@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block main %} {% load static %}
+    <div class="alert alert-success" role="alert">
+        Success! Your emergency report has been submitted.
+      </div>
+    <div style="margin-top: 20px;">
+        <button style="padding: 10px 20px; border-radius: 5px; background-color: #1883da; color: white;">
+            <a href="{% url 'Approving_agency' %}" class="btn btn-ghost btn-sm">Go to Home page</a>
+        </button>
+    </div>
+    <!-- <a href="http://localhost:8501/" style="text-decoration: none; color: white;">Go to ChatBOT App</a> -->
+    {% endblock %}

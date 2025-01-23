@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block main %}
+<div style="border: 1px solid black; padding: 10px;">
+<center>
+  <h1 style="text-align: center; font-size: 2em; margin-bottom: 20px;">IP Information</h1>
+  <p>Latitude: <span id="latitude" style="font-weight: bold;">{{ ip_info.latitude }}</span></p>
+  <p>Longitude: <span id="longitude" style="font-weight: bold;">{{ ip_info.longitude }}</span></p>
+  <p>City: <span id="city" style="font-weight: bold;">{{ ip_info.city }}</span></p>
+  <p>Region: <span id="region" style="font-weight: bold;">{{ ip_info.region }}</span></p>
+  <p>Postal: <span id="postal" style="font-weight: bold;">{{ ip_info.postal }}</span></p>
+  <p>Country: <span id="country" style="font-weight: bold;">{{ ip_info.country }}</span></p>
+  <p>timezone: <span id="isp" style="font-weight: bold;">{{ ip_info.isp }}</span></p>
+</center>
+</div>
+  {% endblock %}
+
+
+

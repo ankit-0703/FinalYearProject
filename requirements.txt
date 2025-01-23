@@ -1,0 +1,13 @@
+django
+fontawesomefree==6.4.2
+python-dotenv
+django-allauth
+django-allauth-ui
+django-widget-tweaks
+psycopg2-binary
+whitenoise
+daphne
+channels
+channels[daphne]
+folium
+ipinfo_django

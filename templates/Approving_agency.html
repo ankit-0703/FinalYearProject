@@ -1,0 +1,35 @@
+{% extends 'base.html' %} 
+{% block main %} 
+{% load static %} 
+{% comment %} Vertical Navigation {% endcomment %}
+
+<div class="px-6 space-y-6 mb-12">
+  <h2>Non-Approved Agencies</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for agency in non_approved %}
+        <tr>
+          <td>{{ agency.name }}</td>
+          <td>
+            <a href="{% url 'agency_approved' agency.id %}" 
+               style="background-color: #4CAF50; color: white; padding: 5px 10px; border-radius: 3px;">
+              Approve
+            </a>
+          </td>
+
+  
+  
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block main %}
+{% load static %}
+
+<div class="px-6 space-y-6 mb-12">
+
+  {% for report in victimportaldetailed.reverse %}
+    <div class="bg-base-200 rounded-xl shadow p-6 hover:shadow-lg border border-base-200 transition duration-300 mb-6">
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th class="text-center px-4 py-2">Name</th>
+            <th class="text-center px-4 py-2">Phone Number</th>
+            <th class="text-center px-4 py-2">Emergency Type</th>
+            <th class="text-center px-4 py-2">Number of People</th>
+            <th class="text-center px-4 py-2">Created At</th>
+            <th class="text-center px-4 py-2">Notify</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-center px-4 py-2">{{ report.name }}</td>
+            <td class="text-center px-4 py-2">{{ report.phone_number }}</td>
+            <td class="text-center px-4 py-2">{{ report.emergency_type }}</td>
+            <td class="text-center px-4 py-2">{{ report.number_of_people }}</td>
+            <td class="text-center px-4 py-2">{{ report.created_at }}</td>
+            <td class="text-center px-4 py-2">
+              <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#notifyModal">Notify</button> -->
+              <button class="btn btn-accent mt-12 max-w-sm" onclick="create_room.showModal()">Notify</button>
+  
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  {% endfor %}
+
+</div>
+<dialog id="create_room" class="modal">
+  <div class="modal-box w-10/12 p-10 max-w-5xl">
+      <h3 class="font-bold text-lg">Notify</h3>
+      <p class="py-4">
+          Fill the Details Correctly.
+      </p>
+
+      <form>
+          <div class="space-y-4 mb-8">
+              <!-- <div>
+                  <label for="name" class="label">
+                      <span class="label-text font-bold">Agency you are about to Colaborate With</span>
+                  </label>
+                  <select class="select select-bordered w-full" name="manpower">
+                    {% for report in victimportaldetailed.reverse %}
+                    <option value="{{ report.name }}">{{ report.name }}</option> 
+                    {% endfor %}
+                  </select>
+              </div> -->
+
+              <div>
+                  <label for="name" class="label">
+                      <span class="label-text font-bold">Enter number of People Backup you are about to send</span>
+                  </label>
+                  <div class="w-full relative">
+                      <input type="text" placeholder="Enter Location" class="input input-bordered w-full" />
+                      <div class="text-xl btn btn-ghost absolute right-0">
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <button
+              type="submit"
+              class="btn btn-accent w-full"
+          >
+              Create Room
+          </button>
+
+      </form>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+  </form>
+</dialog>
+
+{% endblock %}
